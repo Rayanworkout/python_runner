@@ -1,7 +1,9 @@
 # Python Runner
 
 Ce repository contient le code et les fichiers nécessaires à l'utilisation de la library _Python Runner_.
-Cette library a pour but de lancer de manière fiable une série de scripts python de différents projets, le tout avec une stratégie de logs persistants et également sous forme d'email (via une boite Outlook).
+Cette library a pour but de lancer de manière fiable une série de scripts python de différents projets, le tout avec une stratégie de logs persistants et également sous forme d'email.
+
+Pour visualiser vos logs, vous pouvez utiliser [cette librairie](https://github.com/Rayanworkout/minimal_logs_viewer) qui a été conçue pour fonctionner avec ce projet.
 
 ## Exemple
 
