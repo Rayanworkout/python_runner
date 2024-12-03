@@ -3,13 +3,10 @@ import os
 from python_runner import Runner
 from python_runner.helpers import load_config
 
-# Gérer cas où l'env n'existe pas
-# subprocess lève une erreur
-
 projects = [
     r"C:\Users\some_user\Desktop\Dev\python_runner\project_1",
-    # r"C:\Users\some_user\Desktop\Dev\python_runner\project_2",
-    # r"C:\Users\some_user\Desktop\Dev\python_runner\project_3",
+    r"C:\Users\some_user\Desktop\Dev\python_runner\project_2",
+    r"C:\Users\some_user\Desktop\Dev\python_runner\project_3",
 ]
 
 for project in projects:
