@@ -1,7 +1,7 @@
 # Python Runner
 
 Ce repository contient le code et les fichiers nécessaires à l'utilisation de la library _Python Runner_.
-Cette library a pour but de lancer de manière fiable une série de scripts python de différents projets, le tout avec une stratégie de logs persistants et également sous forme d'email.
+Cette library a pour but de lancer de manière fiable une série de scripts python de différents projets, le tout avec une stratégie de logs persistants et également sous forme d'email (via une boite Outlook).
 
 ## Exemple
 
@@ -46,14 +46,18 @@ for project in projects:
 
 # Installation
 
-1) Créer un token d'accès Github
-Pour cela, se rendre sur [cette page](https://github.com/settings/tokens) et cliquer sur `Generate new token`. Cocher la case `repo` et mentionner une date d'expiration.
+1) Créer un environnement virtuel et l'activer
 
-2) Créer un environnement virtuel et l'activer
-
+_Windows_
 ```bash
 python -m venv .venv
 .venv/Scripts/activate
+```
+
+_Linux_
+```bash
+python3 -m venv .venv
+.venv/bin/activate
 ```
 
 `(.venv)` devrait apparaître dans votre terminal, si c'est le cas, l'environnement virtuel est activé.
@@ -63,7 +67,7 @@ python -m venv .venv
 _Notez que les `< >` ne sont pas à inclure dans la commande._
 
 ```bash
-pip install git+https://<your_token>@github.com/Rayanworkout/python_runner.git
+pip install git+https://github.com/Rayanworkout/python_runner.git
 ```
 
 Si tout s'est bien passé, vous pouvez maintenant importer la librairie dans votre code.
@@ -75,6 +79,8 @@ Toutes les dépendances de la library sont présentes dans la library standard P
 
 Pour l'envoi de mails, 2 variables sont nécessaires. Si elles ne sont pas fournies, le programme lèvera une exception de type `MissingEnvironmentVariable`.
 Ces 2 variables sont les suivantes: `LOGIN_MAIL` et `PASSWORD_MAIL`.
+
+Notez que l'envoi de mail se fait par une adresse outlook à travers le port 587 du serveur `smtp.office365.com`. Je n'ai pas testé d'autres fournisseurs d'email, mais il suffira de modifier la dernière partie de la méthode `python_runner.__main__.__send_email()` pour utiliser votre propre manière d'envoyer des emails.
 
 Un fichier `.env.example` est fourni. Il suffit de modifier les valeurs et de renommer le fichier en `.env`.
 
@@ -134,9 +140,9 @@ Les logs sont enregistrés dans le dossier du projet lancé, à l'intérieur d'u
 
 Le format est le suivant:
 
-- `Date et heure - Niveau de log - Machine qui lance le runner - Nom du projet - ID unique du run - Durée d'exécution du script en minutes - Nom du script - statut (success / failure) - Traceback en cas de failure (optionnel)`
+- `Date et heure - Niveau de log - Machine qui lance le runner - ID unique du run - Durée d'exécution du script en minutes - Nom du script - statut (success / failure) - Traceback en cas de failure (optionnel)`
 
-- `2024-11-27 09:51:58,954 - INFO - LAPTOP-BS85JNP7 - project_1 - 39be3d37aed64 - 0.08 - main.py - success`
+- `2024-11-27 09:51:58,954 - INFO - LAPTOP-BS85JNP7 - 39be3d37aed64 - 0.08 - main.py - success`
 
 # Méthodes
 
@@ -145,7 +151,7 @@ Le format est le suivant:
 Pour instancier le runner, certaines variables sont obligatoires, d'autres optionnelles.
 
 ### Obligatoires
-- `project_path: str` représente le chemin d'accès absolu du dossier du projet. Puisque nous utilisons Windows, on préfèrera utiliser un _raw string_ pour éviter tout problème d'échappement. Par exemple `r"C:\Users\some_user\Desktop\Dev\email_sender_wrapper\project_1"` sera un chemin d'accès valide. `"C:\Users\stest\Desktop\Dev\email_sender_wrapper/new_project"` posera des problèmes à cause de `/s` et `/n`.
+- `project_path: str` représente le chemin d'accès absolu du dossier du projet. Puisque nous utilisons Windows, on préfèrera utiliser un _raw string_ pour éviter tout problème d'échappement. Par exemple `r"C:\Users\some_user\Desktop\Dev\email_sender_wrapper\project_1"` sera un chemin d'accès valide. `"C:\Users\stest\Desktop\Dev\email_sender_wrapper\new_project"` posera des problèmes à cause de `/s` et `\n`.
 
 
 - `recipient_emails: list[str]` représente la liste des destinataires pour le projet mentionné dans la variable `project_path`.
