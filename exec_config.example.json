@@ -1,0 +1,8 @@
+{
+    "scripts": ["main.py"],
+    "python_command": "python",
+    "recipients": ["myemail@gmail.com"],
+    "email_strategy": "all",
+    "include_traceback": false,
+    "logs_backup_count": 0
+}

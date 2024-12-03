@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=66", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python_runner"
+version = "0.1.0"
+description = "Lancement automatique des scripts d'un projet avec monitoring et logging."
+authors = [{name = "Rayan", email = "rayan13170@protonmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "python-dotenv>=1.0.1"
+]
