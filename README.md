@@ -149,7 +149,7 @@ Le format est le suivant:
 Pour instancier le runner, certaines variables sont obligatoires, d'autres optionnelles.
 
 ### Obligatoires
-- `project_path: str` représente le chemin d'accès absolu du dossier du projet. Puisque nous utilisons Windows, on préfèrera utiliser un _raw string_ pour éviter tout problème d'échappement. Par exemple `r"C:\Users\some_user\Desktop\Dev\email_sender_wrapper\project_1"` sera un chemin d'accès valide. `"C:\Users\stest\Desktop\Dev\email_sender_wrapper\new_project"` posera des problèmes à cause de `/s` et `\n`.
+- `project_path: str` représente le chemin d'accès absolu du dossier du projet. Puisque nous utilisons Windows, on préfèrera utiliser un _raw string_ pour éviter tout problème d'échappement. Par exemple `r"C:\Users\some_user\Desktop\Dev\email_sender_wrapper\project_1"` sera un chemin d'accès valide. `"C:\Users\stest\Desktop\Dev\email_sender_wrapper\new_project"` posera des problèmes à cause de `\s` et `\n`.
 
 
 - `recipient_emails: list[str]` représente la liste des destinataires pour le projet mentionné dans la variable `project_path`.
