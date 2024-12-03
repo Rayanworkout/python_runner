@@ -64,8 +64,6 @@ python3 -m venv .venv
 
 3) Installer la dépendance via pip
 
-_Notez que les `< >` ne sont pas à inclure dans la commande._
-
 ```bash
 pip install git+https://github.com/Rayanworkout/python_runner.git
 ```
