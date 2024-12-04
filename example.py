@@ -4,9 +4,9 @@ from python_runner import Runner
 from python_runner.helpers import load_config
 
 projects = [
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_1",
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_2",
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_3",
+    r"./project_1"
+    r"./project_2"
+    r"./project_3"
 ]
 
 for project in projects:
@@ -27,6 +27,6 @@ for project in projects:
     runner.run(
         python_scripts=scripts_list,
         python_command=python_command,
-        email_strategy="none",
+        email_strategy=email_strategy,
         include_traceback=include_traceback,
     )

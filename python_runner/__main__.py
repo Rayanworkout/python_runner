@@ -186,9 +186,6 @@ class Runner:
         # Envoyer un email avec les informations de succès et d'erreurs
         self.__send_email(results, strategy=email_strategy)
 
-        # Séparateur pour facilement repérer les blocks
-        self.logger.info("-" * 15)
-
         print(
             f'\nLe run "{run_id}" de {self.project_name} s\'est déroulé avec succès en {(global_end - global_start) / 60:.2f} minute(s).'
         )

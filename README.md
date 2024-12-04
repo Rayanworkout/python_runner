@@ -14,13 +14,11 @@ from python_runner import Runner
 from python_runner.helpers import load_config
 
 projects = [
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_1",
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_2",
-    r"C:\Users\some_user\Desktop\Dev\python_runner\project_3",
+    r"/an/example/path/project_1",
+    r"/some/other/path/project_2",
 ]
 
 for project in projects:
-
     scripts, python_command, recipients, email_strategy, include_traceback, logs_backup_count = (
         load_config(project)
     )
@@ -59,7 +57,7 @@ python -m venv .venv
 _Linux_
 ```bash
 python3 -m venv .venv
-.venv/bin/activate
+source .venv/bin/activate
 ```
 
 `(.venv)` devrait apparaître dans votre terminal, si c'est le cas, l'environnement virtuel est activé.
