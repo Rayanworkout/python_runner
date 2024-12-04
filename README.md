@@ -85,7 +85,7 @@ Un fichier `.env.example` est fourni. Il suffit de modifier les valeurs et de re
 
 # Utilisation
 
-Le fichier `example.py` contient un exemple d'utilisation de la librairie. Pour l'utiliser, il faudra cependant bien l'installer (ou cloner le repo) et créer les dossiers `project_1`, `project_2` et `project_3` avec pour chacun un ou plusieurs scripts ainsi que son fichier de configuration.
+Le fichier `example.py` contient un exemple d'utilisation de la librairie. Pour l'utiliser, il faudra cependant bien installer `python_runner` (ou cloner le repo) et créer des dossiers de projet avec pour chacun un ou plusieurs scripts ainsi que son fichier de configuration.
 
 Pour que le runner puisse lancer l'ensemble des scripts d'un projet, certaines variables doivent **obligatoirement** figurer à l'intérieur d'un fichier `exec_config.json` à la racine du projet. Si ces variables ne sont pas **toutes** présentes, une exception sera levée. Un fichier `exec_config.example.json` est mis à disposition.
 
